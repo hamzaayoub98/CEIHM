@@ -3,25 +3,16 @@ import {FlatList, StyleSheet, TouchableOpacity} from 'react-native';
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import createStackNavigator from "react-native-screens/createNativeStackNavigator";
-import {RootTabScreenProps} from "../types";
+import {product, RootTabScreenProps} from "../types";
+import {productsList} from "../mock/products";
+import ProductItem from "../components/ProductItem";
 
 export default function TabTwoScreen({ navigation }: RootTabScreenProps<'TabTwo'>) {
 
 
-  const produits =[{
-    nom:"chips",
-    prix:25,
-  },
-    {
-      nom:"fromage",
-      prix:15,
-    },{
-      nom:"viande",
-      prix:12,
-    }
-  ];
+  const products : product[] = productsList;
 
-  function goToProductScreen(item:any){
+  function goToProductScreen(item:product){
     navigation.navigate('Product',{produit:item});
   }
 
@@ -29,10 +20,9 @@ export default function TabTwoScreen({ navigation }: RootTabScreenProps<'TabTwo'
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Rechercher</Text>
-      <FlatList scrollEnabled={true}   showsHorizontalScrollIndicator={true}  data={produits} renderItem={({item}) =>
+      <FlatList scrollEnabled={true}   showsHorizontalScrollIndicator={true}  data={products} renderItem={({item}) =>
          <TouchableOpacity style={styles.listItem} onPress={()=>goToProductScreen(item)}>
-           <Text>{item.nom}</Text>
-           <Text>{item.prix}</Text>
+          <ProductItem name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport} composition={item.composition}/>
          </TouchableOpacity>
       }/>
     </View>

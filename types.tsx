@@ -21,6 +21,15 @@ export type RootStackParamList = {
   Product:undefined,
 };
 
+export type product={
+  name:string,
+  prix:number,
+  img:string,
+  nutriscore:number,
+  apport:any,
+  composition:any,
+}
+
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
   RootStackParamList,
   Screen

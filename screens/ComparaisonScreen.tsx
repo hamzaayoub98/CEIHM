@@ -1,4 +1,4 @@
-import {Text, View} from "react-native";
+import {Image, Text, View} from "react-native";
 import {product} from "../types";
 import ApportTable from "../components/ApportTable";
 import {productsList} from "../mock/products";
@@ -8,13 +8,15 @@ export default function ComparaisonScreen(route) {
     const product2:product = productsList[1];
     return(
         <View style={{flex:1,flexDirection:"row" , justifyContent:"space-between"}}>
-            <View style={{flex:1,flexDirection:"column", justifyContent:"center"}}>
+            <View style={{flex:1,flexDirection:"column", justifyContent:"center",borderWidth:1,borderRightColor:"#000"}}>
                 <Text>poduit1</Text>
+                <Image source={require('../assets/images/chips.png')} style={{height:50,width:50}}/>
                 <ApportTable id={product1.id} name={product1.name} prix={product1.prix} img={product1.img}
                              nutriscore={product1.nutriscore} apport={product1.apport} composition={product1.composition} similaires={product1.similaires}/>
             </View>
-            <View style={{flex:1,flexDirection:"column"}}>
+            <View style={{flex:1,flexDirection:"column",borderWidth:1,borderRightColor:"#000"}}>
                 <Text>Produit 2 </Text>
+                <Image source={require('../assets/images/chips.png')} style={{height:50,width:50}}/>
                 <ApportTable id={product2.id} name={product2.name} prix={product2.prix} img={product2.img}
                              nutriscore={product2.nutriscore} apport={product2.apport} composition={product2.composition} similaires={product2.similaires}/>
             </View>

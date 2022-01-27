@@ -20,6 +20,8 @@ import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../typ
 import LinkingConfiguration from './LinkingConfiguration';
 import ProductScreen from "../screens/ProductScreen";
 import ProfilePage from "../screens/ProfilePage";
+import MapScreen from "../screens/MapScreen";
+import ComparaisonScreen from "../screens/ComparaisonScreen";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -44,6 +46,8 @@ function RootNavigator() {
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
       <Stack.Screen name="Product" component={ProductScreen} />
       <Stack.Screen name="Profile" component={ProfilePage}/>
+      <Stack.Screen name="Map" component={MapScreen}/>
+      <Stack.Screen name="Compare" component={ComparaisonScreen}/>
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -96,6 +100,16 @@ function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />
+      <BottomTab.Screen
+      name="Map"
+      component={MapScreen}
+      options={{
+          title:'Map'
+      }}
+      />
+      <BottomTab.Screen
+          name="Compare"
+          component={ComparaisonScreen}/>
     </BottomTab.Navigator>
   );
 }

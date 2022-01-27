@@ -1,6 +1,7 @@
 import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
 import {productsList} from "../mock/products";
 import {product} from "../types";
+import ApportTable from "../components/ApportTable";
 
 
 export default function ProductScreen({route,navigation}) {
@@ -22,25 +23,8 @@ export default function ProductScreen({route,navigation}) {
             <Text style={styles.title}>{produit.name}</Text>
             <View>
                 <Image source={require('../assets/images/chips.png')} style={{height:300,width:200 , borderRadius:25}}/>
-                <View style={styles.tableRoot}>
-                    <Text style={{marginLeft:2,}}>Valeures nutritionnelles</Text>
-                    <View style={{backgroundColor:'#ff0300',flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center',margin:10,borderRadius:20}}>
-                        <Text style={{flex:1, justifyContent:'flex-start',alignItems:'center',marginLeft:2}}>Sucres</Text>
-                        <Text style={{flex:1, justifyContent:'flex-end',alignItems:'center'}}>{produit.apport[1]['sucres']}</Text>
-                    </View>
-                    <View style={{backgroundColor:'#88ff59',flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center',margin:10,borderRadius:20}}>
-                        <Text style={{flex:1, justifyContent:'flex-start',alignItems:'center',marginLeft:2}}>Calories</Text>
-                        <Text style={{flex:1, justifyContent:'flex-end',alignItems:'center'}}>{produit.apport[0]['calories']}</Text>
-                    </View>
-                    <View style={{backgroundColor:'#ffe5aa',flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center',margin:10,borderRadius:20}}>
-                        <Text style={{flex:1, justifyContent:'flex-start',alignItems:'center',marginLeft:2}}>Sel</Text>
-                        <Text style={{flex:1, justifyContent:'flex-end',alignItems:'center'}}>{produit.apport[2]['sel']}</Text>
-                    </View>
-                    <View style={{backgroundColor:'#f57fff',flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center',margin:10,borderRadius:20}}>
-                        <Text style={{flex:1, justifyContent:'flex-start',alignItems:'center',marginLeft:2}}>Lipides</Text>
-                        <Text style={{flex:1, justifyContent:'flex-end',alignItems:'center'}}>{produit.apport[3]['lipides']}</Text>
-                    </View>
-                </View>
+                <ApportTable id={produit.id} name={produit.name} prix={produit.prix} img={produit.img} nutriscore={produit.nutriscore}
+                             apport={produit.apport} composition={produit.composition} similaires={produit.similaires}/>
             </View>
             <Text style={styles.title}>{produit.composition}</Text>
             <Text style={{fontSize:15,fontWeight:"bold"}}>Voir les alternatives</Text>

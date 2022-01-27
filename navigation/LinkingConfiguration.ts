@@ -25,11 +25,21 @@ const linking: LinkingOptions<RootStackParamList> = {
               TabTwoScreen: 'two',
             },
           },
+          Map:{
+            screens:{
+              Map:'map',
+            }
+          },
           Product: {
             screens: {
               ProductScreen:'Product',
             },
           },
+          Compare:{
+            screens:{
+              CompareScreen:'Compare',
+            }
+          }
         },
       },
       Modal: 'modal',

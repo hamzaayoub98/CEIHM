@@ -19,6 +19,8 @@ export type RootStackParamList = {
   NotFound: undefined;
   Profile:undefined,
   Product:undefined,
+  Map:undefined,
+  Compare:undefined;
 };
 
 export type product={
@@ -41,6 +43,8 @@ export type RootTabParamList = {
   TabOne: undefined;
   TabTwo: undefined;
   Product:undefined;
+  Map:undefined;
+  Compare:undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

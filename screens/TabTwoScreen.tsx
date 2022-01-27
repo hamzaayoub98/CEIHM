@@ -13,7 +13,7 @@ export default function TabTwoScreen({ navigation }: RootTabScreenProps<'TabTwo'
   const products : product[] = productsList;
 
   function goToProductScreen(item:product){
-    navigation.navigate('Product',{produit:item});
+    navigation.navigate('Product',{produit:item,navigation:navigation});
   }
 
 

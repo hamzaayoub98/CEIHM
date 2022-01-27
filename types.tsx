@@ -22,12 +22,14 @@ export type RootStackParamList = {
 };
 
 export type product={
+  id:number,
   name:string,
   prix:number,
   img:string,
   nutriscore:number,
   apport:any,
   composition:any,
+  similaires:number[],
 }
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

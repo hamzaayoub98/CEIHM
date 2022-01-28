@@ -35,3 +35,21 @@ export const productsList : product[] =[{
     similaires:[0,1]
 }
 ];
+
+
+export const similairesList :any[] =[{
+    productId:0,
+    similairesId:[
+        2
+    ]
+},{
+    productId:1,
+    similaireId:[
+
+    ]
+},{
+    productId:2,
+    similairesId:[
+        0,1
+    ]
+}];

@@ -1,20 +1,39 @@
 import {FlatList, Image, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {productsList} from "../mock/products";
+import {productsList, similaireList, similairesList} from "../mock/products";
 import {product} from "../types";
 import ApportTable from "../components/ApportTable";
 
 
 export default function ProductScreen({route,navigation}) {
     const produit = route.params.produit;
+    const produitSimilaires = similairesList[produit.id].similairesId;
+    console.log("similaires",produitSimilaires);
     function findProductById(id:number) : product{
         productsList.forEach(item =>{
             if(item.id === id){
-                console.log("eheheh",item);
                 return item;
             }
         })
         return produit
     }
+
+    function alternative(){
+        if(produitSimilaires !== undefined && !(produitSimilaires.length === 0)){
+        return  <FlatList data={produitSimilaires}  numColumns={2} renderItem={({item})=>
+            <TouchableOpacity onPress={()=>{
+                navigation.navigate('Product',{produit:findProductById(item),navigation:navigation})
+            }
+            } >
+                <View style={{margin:4, height:45,width:45,backgroundColor:"#c9c8c7",flex:1,justifyContent:"center",alignItems:"center",borderRadius:5}}>
+                    <Image source={require('../assets/images/chips.png')} style={{height:25,width:25 , borderRadius:2}}/>
+                    <Text>{findProductById(item).name}</Text>
+                </View>
+            </TouchableOpacity>
+        }/>
+    }
+        return <Text>PAs d'alternatives disponibles :(</Text>
+    }
+
 
 
     console.log(produit.nom);
@@ -29,17 +48,7 @@ export default function ProductScreen({route,navigation}) {
             <Text style={styles.title}>{produit.composition}</Text>
             <Text style={{fontSize:15,fontWeight:"bold"}}>Voir les alternatives</Text>
             <View style={{borderRadius:10,backgroundColor:"grey"}}>
-                <FlatList data={produit.similaires}  numColumns={2} renderItem={({item})=>
-                    <TouchableOpacity onPress={()=>{
-                        navigation.navigate('Product',{produit:findProductById(item),navigation:navigation})
-                    }
-                    } >
-                        <View style={{margin:4, height:45,width:45,backgroundColor:"#c9c8c7",flex:1,justifyContent:"center",alignItems:"center",borderRadius:5}}>
-                            <Image source={require('../assets/images/chips.png')} style={{height:25,width:25 , borderRadius:2}}/>
-                            <Text>{findProductById(item).name}</Text>
-                        </View>
-                    </TouchableOpacity>
-                }/>
+                {alternative()}
             </View>
         </View>
     );

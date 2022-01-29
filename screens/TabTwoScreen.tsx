@@ -34,7 +34,8 @@ export default function TabTwoScreen({ navigation }: RootTabScreenProps<'TabTwo'
       <TextInput value={filterValue}  style={styles.input} onChangeText={setfilterValue}/>
       <FlatList scrollEnabled={true}   showsHorizontalScrollIndicator={true}  data={filterProductList(filterValue)} renderItem={({item}) =>
          <TouchableOpacity style={styles.listItem} onPress={()=>goToProductScreen(item)}>
-          <ProductItem name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport} composition={item.composition}/>
+          <ProductItem id={item.id} name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport} composition={item.composition}
+          similaires={item.similaires}/>
          </TouchableOpacity>
       }/>
     </View>

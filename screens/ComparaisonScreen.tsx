@@ -1,4 +1,5 @@
 import {
+    Button,
     FlatList,
     Image,
     Modal,
@@ -15,6 +16,7 @@ import ApportTable from "../components/ApportTable";
 import {productsList} from "../mock/products";
 import {useState} from "react";
 import ProductItem from "../components/ProductItem";
+import {Ionicons} from "@expo/vector-icons";
 
 export default function ComparaisonScreen(route) {
     const [product1,setproduct1]=useState(null);
@@ -26,7 +28,15 @@ export default function ComparaisonScreen(route) {
 
     function productColumn(product:product){
         return( product === null? <Text> Pas encore de produit selectionner</Text> : <View style={{flex:1,flexDirection:"column", justifyContent:"center",alignItems:"center"}}>
-            <Text style={styles.text}>{product.name}</Text>
+
+                <Pressable onPress={()=>{
+                    product === product1?
+                        setproduct1(null)
+                        :
+                        setproduct2(null)
+                }}>
+                <Text style={styles.text}>{product.name}</Text></Pressable>
+
             <Image source={require('../assets/images/chips.png')} style={{height:200,width:100}}/>
             <ApportTable id={product.id} name={product.name} prix={product.prix} img={product.img}
                          nutriscore={product.nutriscore} apport={product.apport} composition={product.composition} similaires={product.similaires}/>

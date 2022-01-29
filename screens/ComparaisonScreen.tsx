@@ -1,4 +1,4 @@
-import {Image, Text, View} from "react-native";
+import {Image, Picker, SafeAreaView, ScrollView, StyleSheet, Text, View} from "react-native";
 import {product} from "../types";
 import ApportTable from "../components/ApportTable";
 import {productsList} from "../mock/products";
@@ -6,20 +6,38 @@ import {productsList} from "../mock/products";
 export default function ComparaisonScreen(route) {
     const product1:product = productsList[0];
     const product2:product = productsList[1];
+    const picked = false;
+
+
+
+
+    function productColumn(product:product){
+       return(<View style={{flex:1,flexDirection:"column", justifyContent:"center",alignItems:"center"}}>
+            <Text style={styles.text}>{product.name}</Text>
+            <Image source={require('../assets/images/chips.png')} style={{height:200,width:100}}/>
+            <ApportTable id={product.id} name={product1.name} prix={product.prix} img={product.img}
+                         nutriscore={product.nutriscore} apport={product.apport} composition={product.composition} similaires={product.similaires}/>
+        </View>);
+    }
+
     return(
-        <View style={{flex:1,flexDirection:"row" , justifyContent:"space-between"}}>
-            <View style={{flex:1,flexDirection:"column", justifyContent:"center",borderWidth:1,borderRightColor:"#000"}}>
-                <Text>poduit1</Text>
-                <Image source={require('../assets/images/chips.png')} style={{height:50,width:50}}/>
-                <ApportTable id={product1.id} name={product1.name} prix={product1.prix} img={product1.img}
-                             nutriscore={product1.nutriscore} apport={product1.apport} composition={product1.composition} similaires={product1.similaires}/>
+        <SafeAreaView style={{flex:1, flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
+            <Text style={styles.title}>Comparer les produits</Text>
+            <View style={{flex:1,flexDirection:"row" , justifyContent:"space-between"}}>
+                {productColumn(product1)}
+                {productColumn(product2)}
             </View>
-            <View style={{flex:1,flexDirection:"column",borderWidth:1,borderRightColor:"#000"}}>
-                <Text>Produit 2 </Text>
-                <Image source={require('../assets/images/chips.png')} style={{height:50,width:50}}/>
-                <ApportTable id={product2.id} name={product2.name} prix={product2.prix} img={product2.img}
-                             nutriscore={product2.nutriscore} apport={product2.apport} composition={product2.composition} similaires={product2.similaires}/>
-            </View>
-        </View>
+            </SafeAreaView>
     );
 }
+
+const styles =  StyleSheet.create({
+
+    text:{
+        fontSize:20
+    },
+    title:{
+        fontSize:30,
+    }
+
+})

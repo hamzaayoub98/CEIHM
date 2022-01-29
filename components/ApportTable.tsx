@@ -2,9 +2,13 @@ import {product} from "../types";
 import {StyleSheet, Text, View} from "react-native";
 
 export default function ApportTable(produit:product){
+
+
+
+
     return(
         <View style={styles.tableRoot}>
-            <Text style={{marginLeft:2,}}>Valeures nutritionnelles</Text>
+            <Text style={{marginLeft:25,}}>Valeures nutritionnelles</Text>
             <View style={{backgroundColor:'#ff0300',flex:1,flexDirection:'row',justifyContent:'flex-end',alignItems:'center',margin:10,borderRadius:20}}>
                 <Text style={{flex:1, justifyContent:'flex-start',alignItems:'center',marginLeft:2}}>Sucres</Text>
                 <Text style={{flex:1, justifyContent:'flex-end',alignItems:'center'}}>{produit.apport[1]['sucres']}</Text>
@@ -34,10 +38,11 @@ const styles = StyleSheet.create({
         height:'100%',
     },
     tableRoot:{
-        backgroundColor:"grey",
+        backgroundColor:"#ffffff",
         flex: 1,
         width:'100%',
         borderRadius:12,
+        justifyContent:"center"
     },
     tableContent:{
         flex:1,

@@ -4,7 +4,7 @@ export const productsList : product[] =[{
     id:0,
     name:"chips",
     prix:25,
-    img:'../assets/images/chips.png',
+    img:require('../assets/images/chips.png'),
     nutriscore:0,
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
@@ -15,7 +15,7 @@ export const productsList : product[] =[{
     id:1,
     name:"chips",
     prix:25,
-    img:'../assets/images/chips.png',
+    img:require('../assets/images/chips.png'),
     nutriscore:0,
     apport:[
     {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
@@ -26,7 +26,7 @@ export const productsList : product[] =[{
     name:"chips",
     id:2,
     prix:25,
-    img:'../assets/images/chips.png',
+    img:require('../assets/images/chips.png'),
     nutriscore:0,
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},

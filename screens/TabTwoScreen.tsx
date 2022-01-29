@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, TouchableOpacity} from 'react-native';
+import {FlatList, StyleSheet, TextInput, TouchableOpacity} from 'react-native';
 
 import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
@@ -6,11 +6,22 @@ import createStackNavigator from "react-native-screens/createNativeStackNavigato
 import {product, RootTabScreenProps} from "../types";
 import {productsList} from "../mock/products";
 import ProductItem from "../components/ProductItem";
+import {useState} from "react";
 
 export default function TabTwoScreen({ navigation }: RootTabScreenProps<'TabTwo'>) {
 
 
   const products : product[] = productsList;
+  const [filterValue,setfilterValue] = useState("");
+
+
+
+  function filterProductList(filter:string):product[]{
+    const filtered = products.filter(prod =>
+      prod.name.toLowerCase().includes(filter.toLocaleLowerCase())
+    )
+    return filter === ""? productsList: filtered
+  }
 
   function goToProductScreen(item:product){
     navigation.navigate('Product',{produit:item,navigation:navigation});
@@ -19,8 +30,9 @@ export default function TabTwoScreen({ navigation }: RootTabScreenProps<'TabTwo'
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Rechercher</Text>
-      <FlatList scrollEnabled={true}   showsHorizontalScrollIndicator={true}  data={products} renderItem={({item}) =>
+      <Text style={styles.title} >Rechercher</Text>
+      <TextInput value={filterValue}  style={styles.input} onChangeText={setfilterValue}/>
+      <FlatList scrollEnabled={true}   showsHorizontalScrollIndicator={true}  data={filterProductList(filterValue)} renderItem={({item}) =>
          <TouchableOpacity style={styles.listItem} onPress={()=>goToProductScreen(item)}>
           <ProductItem name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport} composition={item.composition}/>
          </TouchableOpacity>
@@ -52,5 +64,12 @@ const styles = StyleSheet.create({
     borderRadius:5,
     backgroundColor:"#737373",
     margin:15,
-  }
+  },
+  input: {
+    height: 40,
+    margin: 12,
+    width:100,
+    borderWidth: 1,
+    padding: 10,
+  },
 });

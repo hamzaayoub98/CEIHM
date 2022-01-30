@@ -9,7 +9,7 @@ export default function ProductItem(props:product){
     console.log(img,'../assets/images/chips.png' === img);
     return(
         <View style={{flex:1,flexDirection:"row",justifyContent:"flex-start",}}>
-            <Image source={require('../assets/images/chips.png')} style={{height:'90%',width:30,marginTop:'1%',marginLeft:1,borderRadius:3}}/>
+            <Image source={props.img} style={{height:'90%',width:'20%',marginTop:'1%',marginLeft:1,borderRadius:3}}/>
             <View style={styles.content}>
                 <Text style={styles.text}>{props.name}</Text>
                 <Text style={styles.text}>{props.composition}</Text>

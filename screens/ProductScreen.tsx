@@ -1,5 +1,5 @@
 import {FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View} from "react-native";
-import {productsList, similaireList, similairesList} from "../mock/products";
+import {productsList, similairesList} from "../mock/products";
 import {product} from "../types";
 import ApportTable from "../components/ApportTable";
 

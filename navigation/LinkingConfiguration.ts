@@ -39,6 +39,11 @@ const linking: LinkingOptions<RootStackParamList> = {
             screens:{
               CompareScreen:'Compare',
             }
+          },
+          BonsPlans:{
+            screens:{
+              CompareScreen:'BonsPlans',
+            }
           }
         },
       },

@@ -4,6 +4,7 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import {Ionicons} from "@expo/vector-icons";
+import {Image} from 'react-native' ; 
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
 
@@ -11,6 +12,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
   return (
     <View style={styles.container}>
             <Text style={styles.title}>Accueil</Text>
+            <Image source={require('../assets/images/eatsmart.png')} />
             <TouchableOpacity  style={styles.profile} onPress={()=>{
                 navigation.navigate('Profile')
             }}>
@@ -32,7 +34,9 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         </View>
         <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.button}>
-                <Text style={styles.buttonContent}>
+            <Text style={styles.buttonContent} onPress={()=>{
+                navigation.navigate('Map')
+            }}>
                     MAP
                 </Text>
             </TouchableOpacity>

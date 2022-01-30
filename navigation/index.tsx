@@ -22,6 +22,7 @@ import ProductScreen from "../screens/ProductScreen";
 import ProfilePage from "../screens/ProfilePage";
 import MapScreen from "../screens/MapScreen";
 import ComparaisonScreen from "../screens/ComparaisonScreen";
+import BonsPlans from "../screens/BonsPlans";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -48,6 +49,7 @@ function RootNavigator() {
       <Stack.Screen name="Profile" component={ProfilePage}/>
       <Stack.Screen name="Map" component={MapScreen}/>
       <Stack.Screen name="Compare" component={ComparaisonScreen}/>
+      <Stack.Screen name="BonsPlans" component={BonsPlans}/>
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
@@ -74,7 +76,7 @@ function BottomTabNavigator() {
         name="TabOne"
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-          title: 'Tab One',
+          title: 'Home',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
             <Pressable
@@ -96,7 +98,7 @@ function BottomTabNavigator() {
         name="TabTwo"
         component={TabTwoScreen}
         options={{
-          title: 'Tab Two',
+          title: 'Rechercher',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />

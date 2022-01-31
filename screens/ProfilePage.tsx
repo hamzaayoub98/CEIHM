@@ -1,12 +1,32 @@
-import {StyleSheet, Text} from "react-native";
+import { useState } from "react";
+import {StyleSheet, Text, TextInput, View, Button, Alert} from "react-native";
 
+const InputField = (props) => {
+    return (
+        <TextInput style={styles.inputText} {...props} editable />
+    )
+}
 
 export default function ProfilePage(){
-
+    const [firstname, setFirstname] = useState<string>('')
+    const [name, setName] = useState<string>('')
+    const [address, setAddress] = useState<string>('')
+    const [regime, setRegime] = useState<string>('')
 
     return(
-
-        <Text style={styles.title}>Profile PAge works</Text>
+        <View>
+            <InputField placeholder="Prénom" color value={firstname} onChangeText={setFirstname}/>
+            <InputField placeholder="Nom" value={name} onChangeText={setName}/>
+            <InputField placeholder="Adresse" value={address} onChangeText={setAddress}/>
+            {/* <InputField placeholder="Allergènes" multilines value={state.allergen} onChangeText={(text: string) => state.allergen = text}/> */}
+            <InputField placeholder="Régime" value={regime} onChangeText={setRegime}/>
+            <Button
+                onPress={() => Alert.alert('Pressed !')}
+                title="Je suis commerçant ->"
+                color="#841584"
+                accessibilityLabel="Learn more about this purple button"
+            />
+        </View>
     );
 
 }
@@ -25,4 +45,9 @@ const styles = StyleSheet.create({
         fontWeight:"bold",
         color:"white"
     },
+    inputText: {
+        color:"black",
+        textAlign: "center",
+        
+    }
 });

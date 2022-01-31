@@ -76,15 +76,18 @@ const styles = StyleSheet.create({
       alignItems:"center",
   },
     buttonContent:{
-            fontSize: 13,
+            fontSize: 15,
             fontWeight: 'bold',
             flex:1,
             justifyContent:"center",
             alignItems:"center",
+            margin:13
     },
   buttonContainer:{
       flex:1,
-      flexDirection:"row"
+      flexDirection:"row",
+      justifyContent:"center",
+      alignItems:"center",
   },
   button:{
       margin:10,

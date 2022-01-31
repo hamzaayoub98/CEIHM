@@ -56,7 +56,7 @@ export const similairesList :any[] =[{
 }];
 
 export const salesProducts : salesproduct[] =[{
-    id:0,
+    id:3,
     name:"Viande",
     prix:25,
     img:require('../assets/images/pngegg.png'),
@@ -67,7 +67,7 @@ export const salesProducts : salesproduct[] =[{
     composition:["Test"],
     similaires:[1,2]
 },{
-    id:1,
+    id:4,
     name:"Chocolat",
     prix:25,
     img:require('../assets/images/chocolat.png'),
@@ -79,7 +79,7 @@ export const salesProducts : salesproduct[] =[{
     similaires:[0,2]
 },{
     name:"Pâtes Barilla",
-    id:2,
+    id:5,
     prix:25,
     img:require('../assets/images/pates.jpeg'),
     nutriscore:0,
@@ -90,7 +90,7 @@ export const salesProducts : salesproduct[] =[{
     similaires:[0,1]
 },{
     name:"6 Pack Coca-cola",
-    id:2,
+    id:6,
     prix:25,
     img:require('../assets/images/coca.jpeg'),
     nutriscore:0,

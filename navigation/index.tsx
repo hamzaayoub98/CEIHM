@@ -23,6 +23,7 @@ import ProfilePage from "../screens/ProfilePage";
 import MapScreen from "../screens/MapScreen";
 import ComparaisonScreen from "../screens/ComparaisonScreen";
 import BonsPlans from "../screens/BonsPlans";
+import ScanScreen from "../screens/ScanScreen";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -50,6 +51,7 @@ function RootNavigator() {
       <Stack.Screen name="Map" component={MapScreen}/>
       <Stack.Screen name="Compare" component={ComparaisonScreen}/>
       <Stack.Screen name="BonsPlans" component={BonsPlans}/>
+      <Stack.Screen name="Scan" component={ScanScreen}/>
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
         <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>

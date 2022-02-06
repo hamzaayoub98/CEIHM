@@ -43,7 +43,7 @@ export const productsList : product[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["Test"],
+    composition:["Viande de boeuf"],
     similaires:[]
 },{
     id:4,
@@ -54,7 +54,7 @@ export const productsList : product[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["des trucs"],
+    composition:["Cacao, sucre, lait"],
     similaires:[]
 },{
     name:"Pâtes Barilla",
@@ -65,7 +65,7 @@ export const productsList : product[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["des trucs"],
+    composition:["Farine,oeuf"],
     similaires:[]
 },{
     name:"6 Pack Coca-cola",
@@ -76,7 +76,7 @@ export const productsList : product[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["des trucs"],
+    composition:["Eau gazeuse, sucre, mélange herbes"],
     similaires:[]
 }
 ];
@@ -93,7 +93,7 @@ export const salesProducts : salesproduct[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["Test"],
+    composition:["Viande de boeuf"],
     similaires:[]
 },{
     id:4,
@@ -104,7 +104,7 @@ export const salesProducts : salesproduct[] =[{
     apport:[
     {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
 ],
-    composition:["des trucs"],
+    composition:["Cacao, sucre, lait"],
     similaires:[]
 },{
     name:"Pâtes Barilla",
@@ -115,7 +115,7 @@ export const salesProducts : salesproduct[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["des trucs"],
+    composition:["Farine,oeuf"],
     similaires:[]
 },{
     name:"6 Pack Coca-cola",
@@ -126,7 +126,7 @@ export const salesProducts : salesproduct[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["des trucs"],
+    composition:["Eau gazeuse, sucre, mélange herbes"],
     similaires:[]
 }
 ];

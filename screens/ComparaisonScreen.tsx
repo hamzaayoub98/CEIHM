@@ -37,7 +37,7 @@ export default function ComparaisonScreen() {
                 }}>
                 <Text style={styles.text}>{product.name}</Text></Pressable>
 
-            <Image source={require('../assets/images/chips.png')} style={{height:200,width:100}}/>
+            <Image source={product.img} style={{height:200,width:100}}/>
             <ApportTable id={product.id} name={product.name} prix={product.prix} img={product.img}
                          nutriscore={product.nutriscore} apport={product.apport} composition={product.composition} similaires={product.similaires}/>
         </View>);

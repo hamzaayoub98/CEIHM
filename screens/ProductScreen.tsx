@@ -2,36 +2,36 @@ import {FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOp
 import {productsList, similairesList} from "../mock/products";
 import {product} from "../types";
 import ApportTable from "../components/ApportTable";
+import CommentPage from "./CommentPage";
 
 
 export default function ProductScreen({route,navigation}) {
     const produit : product = route.params.produit;
-    const produitSimilaires = similairesList[produit.id].similairesId;
+    const produitSimilaires = [0];
     console.log("similaires",produitSimilaires);
     function findProductById(id:number) : product{
-        productsList.forEach(item =>{
-            if(item.id === id){
-                return item;
-            }
-        })
-        return produit
+        if(produit.id === 0){
+            return productsList[1];
+        }
+        else if (produit.id === 1){return  productsList[0]}
+
     }
 
     function alternative(){
-        if(produitSimilaires !== undefined && !(produitSimilaires.length === 0)){
-        return  <FlatList data={produitSimilaires}  numColumns={2} renderItem={({item})=>
+        if(produit.similaires.length){
+        return  <FlatList data={produitSimilaires} renderItem={({item})=>
             <TouchableOpacity onPress={()=>{
                 navigation.navigate('Product',{produit:findProductById(item),navigation:navigation})
             }
             } >
-                <View style={{margin:4, height:45,width:45,backgroundColor:"#c9c8c7",flex:1,justifyContent:"center",alignItems:"center",borderRadius:5}}>
-                    <Image source={item.img} style={{height:25,width:25 , borderRadius:2}}/>
+                <View style={{margin:4, height:100,width:75,backgroundColor:"#c9c8c7",flex:1,justifyContent:"center",alignItems:"center",borderRadius:5}}>
+                    <Image source={findProductById(item).img} style={{height:30,width:30 , borderRadius:2}}/>
                     <Text>{findProductById(item).name}</Text>
                 </View>
             </TouchableOpacity>
         }/>
     }
-        return <Text>PAs d'alternatives disponibles :(</Text>
+        return <Text>Pas d'alternatives disponibles</Text>
     }
 
     return(
@@ -46,6 +46,11 @@ export default function ProductScreen({route,navigation}) {
                     <Text style={styles.title}>{produit.composition}</Text>
                     <Text style={{fontSize:15,fontWeight:"bold"}}>Voir les alternatives</Text>
                     <View>{alternative()}</View>
+                    <TouchableOpacity style={styles.bouton} onPress={()=>{
+                        navigation.navigate('Comment',{produit:produit});
+                    }}>
+                        <Text style={styles.title}>Voir les commentaires</Text>
+                    </TouchableOpacity>
                 </ScrollView>
         </SafeAreaView>
 
@@ -77,6 +82,12 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         fontSize:20,
         fontWeight:"bold",
-        color:"#ff1300"
+        color:"#000000"
     },
+    bouton:{
+        flex:1,
+        justifyContent:"center",
+        backgroundColor:"#c6c6c6",
+        borderRadius:20,
+    }
 });

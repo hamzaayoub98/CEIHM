@@ -8,8 +8,8 @@ import { Marker } from "react-native-maps";
 export default function  MapScreen ({ navigation }: RootTabScreenProps<'Map'>) {
 
     const tokyoRegion = {
-        latitude: 35.6762,
-        longitude: 139.6503,
+        latitude: 43.7101728,
+        longitude: 7.2619532,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
       };
@@ -23,7 +23,10 @@ export default function  MapScreen ({ navigation }: RootTabScreenProps<'Map'>) {
             {/*Make sure the Marker component is a child of MapView. Otherwise it won't render*/}
             <Marker 
             onPress={()=>{navigation.navigate('BonsPlans')}}
-            coordinate={tokyoRegion} />
+            coordinate={tokyoRegion}
+            title={"Carrefour"} />
+            
+            
           </MapView>
         </View>
       );
@@ -39,4 +42,5 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
+  
 });

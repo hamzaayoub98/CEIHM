@@ -4,11 +4,17 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import { RootTabScreenProps } from '../types';
 import {Ionicons} from "@expo/vector-icons";
-import {Image} from 'react-native' ; 
+import {Image} from 'react-native' ;
+import {Camera} from "react-native-vision-camera";
+import {useEffect} from "react";
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
-
-
+    const getCameraPermission = async () => {
+        await Camera.getCameraPermissionStatus()
+    };
+    useEffect(() => {
+        getCameraPermission();
+    }, []);
   return (
     <View style={styles.container}>
             <Text style={styles.title}>Accueil</Text>
@@ -19,7 +25,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                 <Ionicons name="md-person" size={32} color="black" />
             </TouchableOpacity>
         <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Scan',{navigation})}>
                 <Text style={styles.buttonContent}>
                     SCAN
                 </Text>
@@ -40,7 +46,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                     MAP
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={()=>navigation.navigate('Compare')}>
                 <Text style={styles.buttonContent}>
                     COMPARER
                 </Text>
@@ -76,15 +82,18 @@ const styles = StyleSheet.create({
       alignItems:"center",
   },
     buttonContent:{
-            fontSize: 13,
+            fontSize: 15,
             fontWeight: 'bold',
             flex:1,
             justifyContent:"center",
             alignItems:"center",
+            margin:13
     },
   buttonContainer:{
       flex:1,
-      flexDirection:"row"
+      flexDirection:"row",
+      justifyContent:"center",
+      alignItems:"center",
   },
   button:{
       margin:10,

@@ -18,7 +18,7 @@ import {useState} from "react";
 import ProductItem from "../components/ProductItem";
 import {Ionicons} from "@expo/vector-icons";
 
-export default function ComparaisonScreen(route) {
+export default function ComparaisonScreen() {
     const [product1,setproduct1]=useState(null);
     const [product2,setproduct2]=useState(null);
     const [modal1Visible, setModal1Visible] = useState(false);
@@ -61,6 +61,7 @@ export default function ComparaisonScreen(route) {
     }
 
     return(
+        <ScrollView>
         <SafeAreaView style={{flex:1, flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
             <Text style={styles.title}>Comparer les produits</Text>
             {product1 === null?
@@ -88,6 +89,7 @@ export default function ComparaisonScreen(route) {
                 {productColumn(product2)}
             </View>
             </SafeAreaView>
+        </ScrollView>
     );
 }
 

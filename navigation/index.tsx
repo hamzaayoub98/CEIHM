@@ -24,6 +24,7 @@ import MapScreen from "../screens/MapScreen";
 import ComparaisonScreen from "../screens/ComparaisonScreen";
 import BonsPlans from "../screens/BonsPlans";
 import ScanScreen from "../screens/ScanScreen";
+import CommentPage from "../screens/CommentPage";
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -52,8 +53,9 @@ function RootNavigator() {
       <Stack.Screen name="Compare" component={ComparaisonScreen}/>
       <Stack.Screen name="BonsPlans" component={BonsPlans}/>
       <Stack.Screen name="Scan" component={ScanScreen}/>
+      <Stack.Screen name="Comment" component={CommentPage}/>
       <Stack.Group screenOptions={{ presentation: 'modal' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
+          <Stack.Screen name="Modal" component={ModalScreen} />
       </Stack.Group>
     </Stack.Navigator>
   );

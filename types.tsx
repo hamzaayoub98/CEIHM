@@ -23,6 +23,7 @@ export type RootStackParamList = {
   Compare:undefined;
   BonsPlans:undefined;
   Scan:undefined;
+  Comment:undefined;
 };
 
 export type product={
@@ -34,6 +35,13 @@ export type product={
   apport:any,
   composition:any,
   similaires:number[],
+}
+
+export type comment={
+  id:number,
+  productId:number,
+  author:string,
+  content:string,
 }
 
 export type salesproduct={
@@ -60,6 +68,7 @@ export type RootTabParamList = {
   Compare:undefined;
   BonsPlans:undefined;
   Scan:undefined;
+  Comment:undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<

@@ -2,6 +2,7 @@ import {FlatList, Image, SafeAreaView, ScrollView, StyleSheet, Text, TouchableOp
 import {productsList, similairesList} from "../mock/products";
 import {product} from "../types";
 import ApportTable from "../components/ApportTable";
+import CommentPage from "./CommentPage";
 
 
 export default function ProductScreen({route,navigation}) {
@@ -46,6 +47,11 @@ export default function ProductScreen({route,navigation}) {
                     <Text style={styles.title}>{produit.composition}</Text>
                     <Text style={{fontSize:15,fontWeight:"bold"}}>Voir les alternatives</Text>
                     <View>{alternative()}</View>
+                    <TouchableOpacity style={styles.bouton} onPress={()=>{
+                        navigation.navigate('Comment',{produit:produit});
+                    }}>
+                        <Text style={styles.title}>Voir les commentaires</Text>
+                    </TouchableOpacity>
                 </ScrollView>
         </SafeAreaView>
 
@@ -79,4 +85,10 @@ const styles = StyleSheet.create({
         fontWeight:"bold",
         color:"#ff1300"
     },
+    bouton:{
+        flex:1,
+        justifyContent:"center",
+        backgroundColor:"#c6c6c6",
+        borderRadius:20,
+    }
 });

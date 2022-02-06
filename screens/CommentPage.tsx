@@ -40,11 +40,9 @@ export default function CommentPage({route}){
 
 
     return(
-        <ScrollView>
-            <View style={styles.container}>
+        <View style={styles.container}>
                 <Text> Commentaires pour : {product.name}</Text>
-
-                <FlatList data={productComments} extraData={rafraichir} renderItem={({item}) =>
+                <FlatList scrollEnabled={true} data={productComments} extraData={rafraichir} renderItem={({item}) =>
                     <CommentItem id={item.id} productId={item.productId} author={item.author} content={item.content}/>
                 }/>
                 <Text>Ajouter mon commentaire</Text>
@@ -54,8 +52,7 @@ export default function CommentPage({route}){
                         <Ionicons name="md-add" size={28} color="black"/>
                     </TouchableOpacity>
                 </View>
-            </View>
-        </ScrollView>
+        </View>
     );
 
 }
@@ -65,6 +62,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
+        justifyContent:"flex-end",
         width: '100%',
         height:'100%',
     },

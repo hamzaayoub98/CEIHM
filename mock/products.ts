@@ -10,50 +10,79 @@ export const productsList : product[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["des trucs"],
-    similaires:[1,2]
+    composition:["Pomme de terre, huile , sel"],
+    similaires:[1]
 },{
     id:1,
-    name:"chips",
+    name:"Gateaux apperitifs",
     prix:25,
-    img:require('../assets/images/chips.png'),
+    img:require('../assets/images/monaco.jpeg'),
     nutriscore:0,
     apport:[
-    {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
+    {'calories':300},{'sucres':'10gr'},{'sel':'30gr'},{'lipides':'12gr'},
 ],
-    composition:["des trucs"],
-    similaires:[0,2]
+    composition:["farine, fromage, sel, huile"],
+    similaires:[0]
 },{
-    name:"chips",
+    name:"Ketchup",
     id:2,
     prix:25,
-    img:require('../assets/images/chips.png'),
+    img:require('../assets/images/ketchup.jpg'),
+    nutriscore:0,
+    apport:[
+        {'calories':400},{'sucres':'80gr'},{'sel':'5gr'},{'lipides':'0gr'},
+    ],
+    composition:["Tomates, vinaigre, sucre"],
+    similaires:[]
+},{
+    id:3,
+    name:"Viande",
+    prix:25,
+    img:require('../assets/images/pngegg.png'),
+    nutriscore:0,
+    apport:[
+        {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
+    ],
+    composition:["Test"],
+    similaires:[]
+},{
+    id:4,
+    name:"Chocolat",
+    prix:25,
+    img:require('../assets/images/chocolat.png'),
     nutriscore:0,
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["des trucs"],
-    similaires:[0,1]
+    similaires:[]
+},{
+    name:"Pâtes Barilla",
+    id:5,
+    prix:25,
+    img:require('../assets/images/pates.jpeg'),
+    nutriscore:0,
+    apport:[
+        {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
+    ],
+    composition:["des trucs"],
+    similaires:[]
+},{
+    name:"6 Pack Coca-cola",
+    id:6,
+    prix:25,
+    img:require('../assets/images/coca.jpeg'),
+    nutriscore:0,
+    apport:[
+        {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
+    ],
+    composition:["des trucs"],
+    similaires:[]
 }
 ];
 
 
-export const similairesList :any[] =[{
-    productId:0,
-    similairesId:[
-        2
-    ]
-},{
-    productId:1,
-    similaireId:[
 
-    ]
-},{
-    productId:2,
-    similairesId:[
-        0,1
-    ]
-}];
 
 export const salesProducts : salesproduct[] =[{
     id:3,
@@ -65,7 +94,7 @@ export const salesProducts : salesproduct[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Test"],
-    similaires:[1,2]
+    similaires:[]
 },{
     id:4,
     name:"Chocolat",
@@ -76,7 +105,7 @@ export const salesProducts : salesproduct[] =[{
     {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
 ],
     composition:["des trucs"],
-    similaires:[0,2]
+    similaires:[]
 },{
     name:"Pâtes Barilla",
     id:5,
@@ -87,7 +116,7 @@ export const salesProducts : salesproduct[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["des trucs"],
-    similaires:[0,1]
+    similaires:[]
 },{
     name:"6 Pack Coca-cola",
     id:6,
@@ -98,6 +127,6 @@ export const salesProducts : salesproduct[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["des trucs"],
-    similaires:[0,1]
+    similaires:[]
 }
 ];

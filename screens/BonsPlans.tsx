@@ -4,15 +4,17 @@ import EditScreenInfo from '../components/EditScreenInfo';
 import { Text, View } from '../components/Themed';
 import createStackNavigator from "react-native-screens/createNativeStackNavigator";
 import {product, RootTabScreenProps} from "../types";
-import {salesProducts} from "../mock/products";
+import {productsList, salesProducts} from "../mock/products";
 import ProductItem from "../components/ProductItem";
 import {useState} from "react";
 import {Ionicons} from "@expo/vector-icons";
 
 
+
+
 export default function BonsPlans({navigation}: RootTabScreenProps<'BonsPlans'>) {
     const products : product[] = salesProducts;
-  const [filterValue,setfilterValue] = useState("");
+    const [filterValue,setfilterValue] = useState("");
 
 
 
@@ -23,7 +25,9 @@ export default function BonsPlans({navigation}: RootTabScreenProps<'BonsPlans'>)
     return filter === ""? salesProducts: filtered
   }
 
-
+    function  goToProductScreen(item:product){
+      navigation.navigate('Product',{produit:item,navigation:navigation});
+    }
 
 
   return (
@@ -37,7 +41,7 @@ export default function BonsPlans({navigation}: RootTabScreenProps<'BonsPlans'>)
       <TextInput value={filterValue}  style={styles.input} onChangeText={setfilterValue}/>
       <Text style={styles.header} >Bons plans</Text>
       <FlatList scrollEnabled={true}   showsHorizontalScrollIndicator={true}  data={filterProductList(filterValue)} renderItem={({item}) =>
-         <TouchableOpacity style={styles.listItem} >
+         <TouchableOpacity style={styles.listItem} onPress={()=> goToProductScreen(item)} >
           <ProductItem id={item.id} name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport} composition={item.composition}
           similaires={item.similaires}/>
          </TouchableOpacity>
@@ -97,4 +101,4 @@ const styles = StyleSheet.create({
         borderRadius:100,
     },
   });
-  
+

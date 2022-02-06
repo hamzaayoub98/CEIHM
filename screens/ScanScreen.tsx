@@ -1,12 +1,24 @@
 import {StyleSheet, Text, TextInput, TouchableOpacity, View} from "react-native";
 import {useEffect, useState} from "react";
 import {Camera} from "expo-camera";
+import {productsList} from "../mock/products";
 
-export default function ScanScreen(){
+export default function ScanScreen({navigation}){
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     let camera = null;
 
+    function changetype(){
+        setType(
+            type === Camera.Constants.Type.back
+                ? Camera.Constants.Type.front
+                : Camera.Constants.Type.back
+        );
+    }
+
+    function goToProduct(){
+        navigation.navigate('Product',{produit:productsList[0],navigation:navigation});
+    }
 
     useEffect(() => {
         (async () => {
@@ -32,11 +44,7 @@ export default function ScanScreen(){
                 <TouchableOpacity
                     style={styles.button}
                     onPress={() => {
-                        setType(
-                            type === Camera.Constants.Type.back
-                                ? Camera.Constants.Type.front
-                                : Camera.Constants.Type.back
-                        );
+                        goToProduct()
                     }}>
                     <Text style={styles.text}> Flip </Text>
                 </TouchableOpacity>

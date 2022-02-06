@@ -61,6 +61,7 @@ export default function ComparaisonScreen() {
     }
 
     return(
+        <ScrollView>
         <SafeAreaView style={{flex:1, flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
             <Text style={styles.title}>Comparer les produits</Text>
             {product1 === null?
@@ -88,6 +89,7 @@ export default function ComparaisonScreen() {
                 {productColumn(product2)}
             </View>
             </SafeAreaView>
+        </ScrollView>
     );
 }
 

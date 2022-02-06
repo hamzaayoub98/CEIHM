@@ -25,7 +25,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                 <Ionicons name="md-person" size={32} color="black" />
             </TouchableOpacity>
         <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Scan')}>
+            <TouchableOpacity style={styles.button} onPress={()=> navigation.navigate('Scan',{navigation})}>
                 <Text style={styles.buttonContent}>
                     SCAN
                 </Text>

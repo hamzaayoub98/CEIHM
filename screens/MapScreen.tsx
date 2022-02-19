@@ -21,12 +21,13 @@ export default function  MapScreen ({ navigation }: RootTabScreenProps<'Map'>) {
             initialRegion={tokyoRegion} //your region data goes here.
           >
             {/*Make sure the Marker component is a child of MapView. Otherwise it won't render*/}
-            <Marker 
+            <Marker
             onPress={()=>{navigation.navigate('BonsPlans')}}
             coordinate={tokyoRegion}
+            icon={require('../assets/images/carrefour.png')}
             title={"Carrefour"} />
-            
-            
+
+
           </MapView>
         </View>
       );
@@ -42,5 +43,5 @@ const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
   },
-  
+
 });

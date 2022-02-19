@@ -81,7 +81,7 @@ function BottomTabNavigator() {
         component={TabOneScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Home',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
         })}
       />
       <BottomTab.Screen
@@ -89,19 +89,24 @@ function BottomTabNavigator() {
         component={TabTwoScreen}
         options={{
           title: 'Rechercher',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="search" color={color} />,
         }}
       />
       <BottomTab.Screen
       name="Map"
       component={MapScreen}
       options={{
-          title:'Map'
+          title:'Map',
+          tabBarIcon: ({ color }) => <TabBarIcon name="map" color={color} />,
       }}
       />
       <BottomTab.Screen
           name="Compare"
-          component={ComparaisonScreen}/>
+          component={ComparaisonScreen}
+          options={{
+              title:'Compare',
+              tabBarIcon: ({ color }) => <TabBarIcon name="random" color={color} />,
+          }}/>
     </BottomTab.Navigator>
   );
 }

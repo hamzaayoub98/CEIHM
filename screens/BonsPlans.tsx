@@ -43,7 +43,7 @@ export default function BonsPlans({navigation}: RootTabScreenProps<'BonsPlans'>)
       <FlatList scrollEnabled={true}   showsHorizontalScrollIndicator={true}  data={filterProductList(filterValue)} renderItem={({item}) =>
          <TouchableOpacity style={styles.listItem} onPress={()=> goToProductScreen(item)} >
           <ProductItem id={item.id} name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport} composition={item.composition}
-          similaires={item.similaires}/>
+          similaires={item.similaires} regime={item.regime}/>
          </TouchableOpacity>
       }/>
     </View>

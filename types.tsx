@@ -35,6 +35,7 @@ export type product={
   apport:any,
   composition:any,
   similaires:number[],
+  regime:string
 }
 
 export type comment={

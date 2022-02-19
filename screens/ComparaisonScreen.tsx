@@ -18,7 +18,7 @@ import {useState} from "react";
 import ProductItem from "../components/ProductItem";
 import {Ionicons} from "@expo/vector-icons";
 
-export default function ComparaisonScreen() {
+export default function ComparaisonScreen(regime) {
     const [product1,setproduct1]=useState(null);
     const [product2,setproduct2]=useState(null);
     const [modal1Visible, setModal1Visible] = useState(false);
@@ -35,24 +35,26 @@ export default function ComparaisonScreen() {
                         :
                         setproduct2(null)
                 }}>
-                <Text style={styles.text}>{product.name}</Text></Pressable>
-
+                </Pressable>
+            <Text style={styles.text}>{product.name}</Text>
             <Image source={product.img} style={{height:200,width:100}}/>
-            <ApportTable id={product.id} name={product.name} prix={product.prix} img={product.img}
-                         nutriscore={product.nutriscore} apport={product.apport} composition={product.composition} similaires={product.similaires}/>
+            {product.regime == regime ? <Text style={styles.regime}>Ne respecte pas votre régime !</Text> : null}
+            <ApportTable id={product.id} name={product.name} prix={product.prix} img={product.img} nutriscore={product.nutriscore}
+             apport={product.apport} composition={product.composition} similaires={product.similaires} regime={product.regime}/>
         </View>);
     }
 
     function modale(){
         return(
             <Modal visible={modal1Visible || modal2Visible}>
+                <Text style={{fontSize: 24, fontWeight: 'bold', margin: 10}}>Séléctionner le produit à comparer :</Text>
                     <FlatList data={productsList}  renderItem={({item}) =>
                         <Pressable onPress={()=>{
                             modal1Visible ? setproduct1(item) :setproduct2(item)
                             modal1Visible? setModal1Visible(false) : setModal2Visible(false)
-                        }}>
+                        }} style={styles.itemButton}>
                             <ProductItem id={item.id} name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport}
-                                                composition={item.composition} similaires={item.similaires}/>
+                                                composition={item.composition} similaires={item.similaires} regime={item.regime}/>
                         </Pressable>
                     }
                     />
@@ -104,7 +106,27 @@ const styles =  StyleSheet.create({
     button: {
         borderRadius: 20,
         padding: 10,
-        elevation: 2
+        backgroundColor: '#b3b2b1',
+        marginBottom: 5
+
     },
+    itemButton:{
+        padding: 10,
+        margin: 4,
+        borderWidth: 1,
+        borderColor: "black",
+        borderRadius: 12,
+    },
+    regime:{
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: 'red',
+        marginLeft:4,
+        borderWidth: 3,
+        borderColor: "red",
+        borderRadius: 12,
+        padding: 5,
+        margin: 5
+    }
 
 })

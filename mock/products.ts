@@ -11,7 +11,8 @@ export const productsList : product[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Pomme de terre, huile , sel"],
-    similaires:[1]
+    similaires:[1],
+    regime: 'none'
 },{
     id:1,
     name:"Gateaux apperitifs",
@@ -22,7 +23,8 @@ export const productsList : product[] =[{
     {'calories':300},{'sucres':'10gr'},{'sel':'30gr'},{'lipides':'12gr'},
 ],
     composition:["farine, fromage, sel, huile"],
-    similaires:[0]
+    similaires:[0],
+    regime: 'none'
 },{
     name:"Ketchup",
     id:2,
@@ -33,7 +35,8 @@ export const productsList : product[] =[{
         {'calories':400},{'sucres':'80gr'},{'sel':'5gr'},{'lipides':'0gr'},
     ],
     composition:["Tomates, vinaigre, sucre"],
-    similaires:[]
+    similaires:[],
+    regime: 'none'
 },{
     id:3,
     name:"Viande",
@@ -44,7 +47,8 @@ export const productsList : product[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Viande de boeuf"],
-    similaires:[]
+    similaires:[],
+    regime: 'none'
 },{
     id:4,
     name:"Chocolat",
@@ -55,7 +59,8 @@ export const productsList : product[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Cacao, sucre, lait"],
-    similaires:[]
+    similaires:[],
+    regime: 'none'
 },{
     name:"Pâtes Barilla",
     id:5,
@@ -66,7 +71,8 @@ export const productsList : product[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Farine,oeuf"],
-    similaires:[]
+    similaires:[],
+    regime: 'none'
 },{
     name:"6 Pack Coca-cola",
     id:6,
@@ -77,7 +83,8 @@ export const productsList : product[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Eau gazeuse, sucre, mélange herbes"],
-    similaires:[]
+    similaires:[],
+    regime: 'none'
 }
 ];
 

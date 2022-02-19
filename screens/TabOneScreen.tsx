@@ -8,6 +8,7 @@ import {Image} from 'react-native' ;
 import {Camera} from "react-native-vision-camera";
 import {useEffect, useState} from "react";
 import DropDownPicker from "react-native-dropdown-picker";
+import {user} from "../mock/comments";
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
     console.disableYellowBox = true;
@@ -28,6 +29,12 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         getCameraPermission();
     }, []);
 
+    function exitModale(){
+        setmodal(false)
+        user.nom = filterValue
+        user.regime = value
+    }
+
     function modale(){
         return(
         <Modal visible={modal} style={{flex:1,justifyContent:"flex-end",alignItems:"center",margin:40}}>
@@ -35,13 +42,13 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                 <Text style={{
                     fontSize: 13,
                     fontWeight: 'bold',
-                    
+
                 }}>Nom utilisateur : </Text>
                 <TextInput value={filterValue}  style={styles.input} onChangeText={setfilterValue}/>
                 <Text style={{
                     fontSize: 13,
                     fontWeight: 'bold',
-                    
+
                 }}>Régime alimentaire</Text>
                 <DropDownPicker
                     open={open}
@@ -53,12 +60,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                     placeholder="Choisissez votre régime"
                     zIndex={1}
                 />
-                <TouchableOpacity  onPress={()=>setmodal(false)} style={{
-                    margin:270,
-                    height:100,
-                    width:150,
-                    borderRadius:10,
-                    backgroundColor:"#9ACD32",
+                <TouchableOpacity  onPress={()=>exitModale()} style={{
                     flex:1,
                     justifyContent:"center",
                     alignItems:"center",
@@ -66,10 +68,10 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                     <Text style={{
                         fontSize: 18,
                         fontWeight: 'bold',
-                        flex:1,
                         justifyContent:"center",
                         alignItems:"center",
-                        margin:13
+                        margin:13,
+                        backgroundColor:"#cbcbcb"
                     }}>Page d'accueil</Text>
                 </TouchableOpacity>
             </View>

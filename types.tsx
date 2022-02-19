@@ -54,6 +54,7 @@ export type salesproduct={
   apport:any,
   composition:any,
   similaires:number[],
+  regime:string,
 }
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

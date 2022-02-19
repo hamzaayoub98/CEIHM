@@ -1,6 +1,12 @@
 import {comment} from "../types";
 
 
+export const user = {
+    nom:"john",
+    regime:"none"
+}
+
+
 export const comments:comment[] =[{
     id:0,
     productId : 0,

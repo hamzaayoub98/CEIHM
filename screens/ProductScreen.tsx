@@ -3,12 +3,14 @@ import {productsList, similairesList} from "../mock/products";
 import {product} from "../types";
 import ApportTable from "../components/ApportTable";
 import CommentPage from "./CommentPage";
+import {user} from "../mock/comments";
 
 
 export default function ProductScreen({route,navigation}) {
     console.disableYellowBox = true;
     const produit : product = route.params.produit;
-    const regime = route.params.regime;
+    const regime = user.regime;
+    console.log(regime);
     const produitSimilaires = [0];
     console.log("similaires",produitSimilaires);
     function findProductById(id:number) : product{
@@ -43,7 +45,7 @@ export default function ProductScreen({route,navigation}) {
                     <View>
                         <Image source={produit.img} style={{alignSelf: 'center', height:200,width:100 , borderRadius:25}}/>
                         <View>
-                            {produit.regime == regime ? <Text style={styles.regime}>Ne respecte pas votre régime !</Text> : null}       
+                            {produit.regime === regime ? <Text style={styles.regime}>Ne respecte pas votre régime !</Text> : null}
                         </View>
                         <ApportTable id={produit.id} name={produit.name} prix={produit.prix} img={produit.img} nutriscore={produit.nutriscore}
                                      apport={produit.apport} composition={produit.composition} similaires={produit.similaires} regime={produit.regime}/>

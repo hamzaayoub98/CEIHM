@@ -12,7 +12,7 @@ export const productsList : product[] =[{
     ],
     composition:["Pomme de terre, huile , sel"],
     similaires:[1],
-    regime: 'none'
+    regime: 'noGluten'
 },{
     id:1,
     name:"Gateaux apperitifs",
@@ -24,7 +24,7 @@ export const productsList : product[] =[{
 ],
     composition:["farine, fromage, sel, huile"],
     similaires:[0],
-    regime: 'none'
+    regime: 'noGluten'
 },{
     name:"Ketchup",
     id:2,
@@ -36,7 +36,7 @@ export const productsList : product[] =[{
     ],
     composition:["Tomates, vinaigre, sucre"],
     similaires:[],
-    regime: 'none'
+    regime: ''
 },{
     id:3,
     name:"Viande",
@@ -48,7 +48,7 @@ export const productsList : product[] =[{
     ],
     composition:["Viande de boeuf"],
     similaires:[],
-    regime: 'none'
+    regime: 'vegan'
 },{
     id:4,
     name:"Chocolat",
@@ -60,7 +60,7 @@ export const productsList : product[] =[{
     ],
     composition:["Cacao, sucre, lait"],
     similaires:[],
-    regime: 'none'
+    regime: 'vegan'
 },{
     name:"Pâtes Barilla",
     id:5,
@@ -70,9 +70,9 @@ export const productsList : product[] =[{
     apport:[
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
-    composition:["Farine,oeuf"],
+    composition:["Farine"],
     similaires:[],
-    regime: 'none'
+    regime: 'noGluten'
 },{
     name:"6 Pack Coca-cola",
     id:6,
@@ -84,7 +84,7 @@ export const productsList : product[] =[{
     ],
     composition:["Eau gazeuse, sucre, mélange herbes"],
     similaires:[],
-    regime: 'none'
+    regime: ''
 }
 ];
 
@@ -101,7 +101,8 @@ export const salesProducts : salesproduct[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Viande de boeuf"],
-    similaires:[]
+    similaires:[],
+    regime: 'vegan'
 },{
     id:4,
     name:"Chocolat",
@@ -112,7 +113,8 @@ export const salesProducts : salesproduct[] =[{
     {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
 ],
     composition:["Cacao, sucre, lait"],
-    similaires:[]
+    similaires:[],
+    regime: 'vegan'
 },{
     name:"Pâtes Barilla",
     id:5,
@@ -123,7 +125,8 @@ export const salesProducts : salesproduct[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Farine,oeuf"],
-    similaires:[]
+    similaires:[],
+    regime: 'noGluten'
 },{
     name:"6 Pack Coca-cola",
     id:6,
@@ -134,6 +137,7 @@ export const salesProducts : salesproduct[] =[{
         {'calories':700},{'sucres':'60gr'},{'sel':'10gr'},{'lipides':'1gr'},
     ],
     composition:["Eau gazeuse, sucre, mélange herbes"],
-    similaires:[]
+    similaires:[],
+    regime: 'none'
 }
 ];

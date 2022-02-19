@@ -1,6 +1,7 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import {StyleSheet, Text, TextInput, View, Button, Alert, Pressable} from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
+import {user} from "../mock/comments";
 
 const InputField = (props) => {
     return (
@@ -21,6 +22,14 @@ export default function ProfilePage(){
         {label: 'Végétarien', value: 'vegetarien'},
         {label: 'Végan', value: 'vegan'}
     ]);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if(!(name ==='')){user.nom = name}
+            if(!(value==='none')){console.log("Regime changed");user.regime = value}
+        }, 1000);
+        return () => clearInterval(interval);
+    }, []);
 
     return(
         <View style={styles.container}>

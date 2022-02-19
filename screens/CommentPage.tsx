@@ -6,6 +6,7 @@ import {Ionicons} from "@expo/vector-icons";
 import {useState} from "react";
 
 function getCommentsFromProduct(product){
+    console.disableYellowBox = true;
     let res : comment[] = [];
     comments.forEach(comment =>{
         if(comment.productId === product.id){

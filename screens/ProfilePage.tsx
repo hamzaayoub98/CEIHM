@@ -9,6 +9,7 @@ const InputField = (props) => {
 }
 
 export default function ProfilePage(){
+    console.disableYellowBox = true;
     const [firstname, setFirstname] = useState<string>('')
     const [name, setName] = useState<string>('')
     const [address, setAddress] = useState<string>('')

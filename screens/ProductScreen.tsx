@@ -6,6 +6,7 @@ import CommentPage from "./CommentPage";
 
 
 export default function ProductScreen({route,navigation}) {
+    console.disableYellowBox = true;
     const produit : product = route.params.produit;
     const regime = route.params.regime;
     const produitSimilaires = [0];

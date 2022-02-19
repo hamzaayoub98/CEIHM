@@ -4,6 +4,7 @@ import {Camera} from "expo-camera";
 import {productsList} from "../mock/products";
 
 export default function ScanScreen({navigation}){
+    console.disableYellowBox = true;
     const [hasPermission, setHasPermission] = useState(null);
     const [type, setType] = useState(Camera.Constants.Type.back);
     let camera = null;

@@ -13,6 +13,7 @@ import {Ionicons} from "@expo/vector-icons";
 
 
 export default function BonsPlans({navigation}: RootTabScreenProps<'BonsPlans'>) {
+  console.disableYellowBox = true;
     const products : product[] = salesProducts;
     const [filterValue,setfilterValue] = useState("");
 

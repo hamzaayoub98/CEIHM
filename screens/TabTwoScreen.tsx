@@ -10,7 +10,7 @@ import {useState} from "react";
 
 export default function TabTwoScreen({ navigation }: RootTabScreenProps<'TabTwo'>) {
 
-
+  console.disableYellowBox = true;
   const products : product[] = productsList;
   const [filterValue,setfilterValue] = useState("");
 

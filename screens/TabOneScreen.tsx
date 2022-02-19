@@ -10,6 +10,7 @@ import {useEffect, useState} from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
+    console.disableYellowBox = true;
     const [modal, setmodal] = useState(true);
     const [filterValue,setfilterValue] = useState("");
     const [value, setValue] = useState('none');

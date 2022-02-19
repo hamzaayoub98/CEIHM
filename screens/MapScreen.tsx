@@ -6,6 +6,7 @@ import MapView ,{PROVIDER_GOOGLE}from 'react-native-maps';
 import { Marker } from "react-native-maps";
 
 export default function  MapScreen ({ navigation }: RootTabScreenProps<'Map'>) {
+  console.disableYellowBox = true;
 
     const tokyoRegion = {
         latitude: 43.7101728,

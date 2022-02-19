@@ -85,7 +85,7 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
             <Text style={styles.title}>Accueil</Text>
             <Image source={require('../assets/images/eatsmart.png')} />
             <TouchableOpacity  style={styles.profile} onPress={()=>{
-                navigation.navigate('Profile')
+                navigation.navigate('Profile',{navigation})
             }}>
                 <Ionicons name="md-person" size={32} color="black" />
             </TouchableOpacity>

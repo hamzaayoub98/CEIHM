@@ -10,7 +10,6 @@ export default function ProductScreen({route,navigation}) {
     console.disableYellowBox = true;
     const produit : product = route.params.produit;
     const regime = user.regime;
-    console.log(regime);
     const produitSimilaires = [0];
     console.log("similaires",produitSimilaires);
     function findProductById(id:number) : product{

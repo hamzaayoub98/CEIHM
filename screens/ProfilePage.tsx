@@ -2,6 +2,7 @@ import {useEffect, useState} from "react";
 import {StyleSheet, Text, TextInput, View, Button, Alert, Pressable} from "react-native";
 import DropDownPicker from 'react-native-dropdown-picker';
 import {user} from "../mock/comments";
+import {RootTabScreenProps} from "../types";
 
 const InputField = (props) => {
     return (
@@ -9,13 +10,13 @@ const InputField = (props) => {
     )
 }
 
-export default function ProfilePage(){
+export default function ProfilePage({navigation}){
     console.disableYellowBox = true;
     const [firstname, setFirstname] = useState<string>('')
-    const [name, setName] = useState<string>('')
+    const [name, setName] = useState<string>(user.nom)
     const [address, setAddress] = useState<string>('')
     const [open, setOpen] = useState(false);
-    const [value, setValue] = useState('none');
+    const [value, setValue] = useState(user.regime);
     const [items, setItems] = useState([
         {label: 'Pas de régime', value: 'none'},
         {label: 'No Gluten', value: 'noGluten'},
@@ -23,13 +24,12 @@ export default function ProfilePage(){
         {label: 'Végan', value: 'vegan'}
     ]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if(!(name ==='')){user.nom = name}
-            if(!(value==='none')){console.log("Regime changed");user.regime = value}
-        }, 1000);
-        return () => clearInterval(interval);
-    }, []);
+    function backToHome(){
+        user.regime = value
+        user.nom = name
+        navigation.pop();
+    }
+
 
     return(
         <View style={styles.container}>
@@ -63,6 +63,11 @@ export default function ProfilePage(){
                         <Text style={styles.buttonOwner}>Gérer mes magasins</Text>
                     </Pressable>
                 </View>
+            </View>
+            <View style={styles.buttonContainer}>
+                <Pressable style={styles.button} onPress={backToHome}>
+                    <Text style={styles.buttonOwner}>Sauvegarder mes changement</Text>
+                </Pressable>
             </View>
         </View>
     );

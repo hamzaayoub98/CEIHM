@@ -90,9 +90,10 @@ const styles = StyleSheet.create({
         color:"#000000"
     },
     bouton:{
+        height:30,
         flex:1,
         justifyContent:"center",
-        backgroundColor:"#c6c6c6",
+        backgroundColor:"#9ACD32",
         borderRadius:20,
         marginBottom: 10
     },

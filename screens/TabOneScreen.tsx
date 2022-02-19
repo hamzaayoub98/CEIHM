@@ -31,9 +31,17 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
         return(
         <Modal visible={modal} style={{flex:1,justifyContent:"flex-end",alignItems:"center",margin:40}}>
             <View style={{flex:1,justifyContent:"flex-end",alignItems:"center",margin:40}}>
-                <Text>Nom utilisateur : </Text>
+                <Text style={{
+                    fontSize: 13,
+                    fontWeight: 'bold',
+                    
+                }}>Nom utilisateur : </Text>
                 <TextInput value={filterValue}  style={styles.input} onChangeText={setfilterValue}/>
-                <Text>Régime alimentaire</Text>
+                <Text style={{
+                    fontSize: 13,
+                    fontWeight: 'bold',
+                    
+                }}>Régime alimentaire</Text>
                 <DropDownPicker
                     open={open}
                     value={value}
@@ -44,10 +52,24 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                     placeholder="Choisissez votre régime"
                     zIndex={1}
                 />
-                <TouchableOpacity  onPress={()=>setmodal(false)} style={{flex: 1,
-                    alignItems: 'center',
-                    justifyContent: 'center'}}>
-                    <Text style={{borderRadius:5, backgroundColor:"#a4a4a4"}}>Page d'accueil</Text>
+                <TouchableOpacity  onPress={()=>setmodal(false)} style={{
+                    margin:270,
+                    height:100,
+                    width:150,
+                    borderRadius:10,
+                    backgroundColor:"#9ACD32",
+                    flex:1,
+                    justifyContent:"center",
+                    alignItems:"center",
+                }}>
+                    <Text style={{
+                        fontSize: 18,
+                        fontWeight: 'bold',
+                        flex:1,
+                        justifyContent:"center",
+                        alignItems:"center",
+                        margin:13
+                    }}>Page d'accueil</Text>
                 </TouchableOpacity>
             </View>
 

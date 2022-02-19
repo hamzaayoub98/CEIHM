@@ -66,10 +66,12 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         width:"50%",
         height:"50%",
-        backgroundColor:"#dddddd",
+        backgroundColor:"#9ACD32",
     },
     text:{
-        fontSize:20,
+        fontSize: 30,
+        fontWeight: 'bold',
+
     },
     buttonContainer:{
         flex:1,
@@ -78,6 +80,6 @@ const styles = StyleSheet.create({
         width:"100%",
         height:"10%",
         borderRadius:200,
-        backgroundColor:"#dddddd",
+        backgroundColor:"#9ACD32",
     },
 })

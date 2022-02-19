@@ -7,11 +7,19 @@ import {Ionicons} from "@expo/vector-icons";
 import {Image} from 'react-native' ;
 import {Camera} from "react-native-vision-camera";
 import {useEffect, useState} from "react";
+import DropDownPicker from "react-native-dropdown-picker";
 
 export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'>) {
     const [modal, setmodal] = useState(true);
     const [filterValue,setfilterValue] = useState("");
-    const [selectedDropDown, setselectedDropDown] = useState("none");
+    const [value, setValue] = useState('none');
+    const [open, setOpen] = useState(false);
+    const [items, setItems] = useState([
+        {label: 'Pas de régime', value: 'none'},
+        {label: 'No Gluten', value: 'noGluten'},
+        {label: 'Végétarien', value: 'vegetarien'},
+        {label: 'Végan', value: 'vegan'}
+    ]);
     const getCameraPermission = async () => {
         await Camera.getCameraPermissionStatus()
     };
@@ -26,13 +34,16 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                 <Text>Nom utilisateur : </Text>
                 <TextInput value={filterValue}  style={styles.input} onChangeText={setfilterValue}/>
                 <Text>Régime alimentaire</Text>
-                <Picker
-                    selectedValue={selectedDropDown}
-                    style={{ height: 50, width: 150 }}
-                    onValueChange={(itemValue, itemIndex) => setselectedDropDown(itemValue)}>
-                    <Picker.Item label="Aucun" value="none" />
-                    <Picker.Item label="Vegetarien" value="vege" />
-                </Picker>
+                <DropDownPicker
+                    open={open}
+                    value={value}
+                    items={items}
+                    setOpen={setOpen}
+                    setValue={setValue}
+                    setItems={setItems}
+                    placeholder="Choisissez votre régime"
+                    zIndex={1}
+                />
                 <TouchableOpacity  onPress={()=>setmodal(false)} style={{flex: 1,
                     alignItems: 'center',
                     justifyContent: 'center'}}>

@@ -49,7 +49,7 @@ export default function CommentPage({route}){
                 <View style={{flex:1,flexDirection:"row"}}>
                     <TextInput style={styles.input} value={myCommentValue} onChangeText={setMyCommentValue}/>
                     <TouchableOpacity style={{flex:1,alignItems:"center",justifyContent:"center"}} onPress={addComment}>
-                        <Ionicons name="md-add" size={28} color="black"/>
+                        <Ionicons name="md-chatbubbles" size={28} color="black"/>
                     </TouchableOpacity>
                 </View>
         </View>

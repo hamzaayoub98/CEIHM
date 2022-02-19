@@ -39,10 +39,11 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
             </TouchableOpacity>
         </View>
         <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonContent} onPress={()=>{
-                navigation.navigate('Map')
-            }}>
+            <TouchableOpacity style={styles.button}
+                              onPress={()=>{
+                                  navigation.navigate('Map')
+                              }}>
+            <Text style={styles.buttonContent}>
                     MAP
                 </Text>
             </TouchableOpacity>

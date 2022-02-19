@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {StyleSheet, Text, TextInput, View, Button, Alert} from "react-native";
+import {StyleSheet, Text, TextInput, View, Button, Alert, TouchableOpacity} from "react-native";
 
 const InputField = (props) => {
     return (
@@ -26,6 +26,12 @@ export default function ProfilePage(){
                 color="#841584"
                 accessibilityLabel="Learn more about this purple button"
             />
+            <Button
+                onPress={() => Alert.alert('Choix enregistrés avec succès')}
+                title="Valider mes choix"
+                color="#841584"
+                accessibilityLabel="Learn more about this purple button"
+            />
         </View>
     );
 
@@ -48,6 +54,6 @@ const styles = StyleSheet.create({
     inputText: {
         color:"black",
         textAlign: "center",
-        
+
     }
 });

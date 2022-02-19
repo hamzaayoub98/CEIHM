@@ -7,6 +7,7 @@ import CommentPage from "./CommentPage";
 
 export default function ProductScreen({route,navigation}) {
     const produit : product = route.params.produit;
+    const regime = route.params.regime;
     const produitSimilaires = [0];
     console.log("similaires",produitSimilaires);
     function findProductById(id:number) : product{
@@ -25,7 +26,7 @@ export default function ProductScreen({route,navigation}) {
             }
             } >
                 <View style={{margin:4, height:100,width:75,backgroundColor:"#c9c8c7",flex:1,justifyContent:"center",alignItems:"center",borderRadius:5}}>
-                    <Image source={findProductById(item).img} style={{height:30,width:30 , borderRadius:2}}/>
+                    <Image source={findProductById(item).img} style={{height:60,width:60 , borderRadius:2}}/>
                     <Text>{findProductById(item).name}</Text>
                 </View>
             </TouchableOpacity>
@@ -39,13 +40,21 @@ export default function ProductScreen({route,navigation}) {
                 <ScrollView>
                     <Text style={styles.title}>{produit.name}</Text>
                     <View>
-                        <Image source={produit.img} style={{height:200,width:100 , borderRadius:25}}/>
+                        <Image source={produit.img} style={{alignSelf: 'center', height:200,width:100 , borderRadius:25}}/>
+                        <View>
+                            {produit.regime == regime ? <Text style={styles.regime}>Ne respecte pas votre régime !</Text> : null}       
+                        </View>
                         <ApportTable id={produit.id} name={produit.name} prix={produit.prix} img={produit.img} nutriscore={produit.nutriscore}
-                                     apport={produit.apport} composition={produit.composition} similaires={produit.similaires}/>
+                                     apport={produit.apport} composition={produit.composition} similaires={produit.similaires} regime={produit.regime}/>
                     </View>
-                    <Text style={styles.title}>{produit.composition}</Text>
-                    <Text style={{fontSize:15,fontWeight:"bold"}}>Voir les alternatives</Text>
-                    <View>{alternative()}</View>
+                    <View style={styles.alternativesProducts}>
+                        <Text style={styles.title}>Ingrédients</Text>
+                        <Text style={{fontSize: 18}}>{produit.composition}</Text>
+                    </View>
+                    <View style={styles.alternativesProducts}>
+                        <Text style={styles.title}>Alternatives : </Text>
+                        <View>{alternative()}</View>
+                    </View>
                     <TouchableOpacity style={styles.bouton} onPress={()=>{
                         navigation.navigate('Comment',{produit:produit});
                     }}>
@@ -63,14 +72,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
-        width: '100%',
-        height:'100%',
     },
     tableRoot:{
         backgroundColor:"grey",
         flex: 1,
-        width:'100%',
         borderRadius:12,
     },
     tableContent:{
@@ -79,7 +84,7 @@ const styles = StyleSheet.create({
     },
     title: {
         flex:1,
-        justifyContent:"center",
+        alignSelf:"center",
         fontSize:20,
         fontWeight:"bold",
         color:"#000000"
@@ -89,5 +94,24 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         backgroundColor:"#c6c6c6",
         borderRadius:20,
+        marginBottom: 10
+    },
+    alternativesProducts:{
+        borderWidth: 1,
+        borderColor: "black",
+        borderRadius: 12,
+        padding: 5,
+        margin: 5
+    },
+    regime:{
+        fontSize: 26,
+        fontWeight: 'bold',
+        color: 'red',
+        marginLeft:4,
+        borderWidth: 3,
+        borderColor: "red",
+        borderRadius: 12,
+        padding: 5,
+        margin: 5
     }
 });

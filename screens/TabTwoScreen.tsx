@@ -30,12 +30,11 @@ export default function TabTwoScreen({ navigation }: RootTabScreenProps<'TabTwo'
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title} >Rechercher</Text>
       <TextInput value={filterValue}  style={styles.input} onChangeText={setfilterValue}/>
       <FlatList scrollEnabled={true}   showsHorizontalScrollIndicator={true}  data={filterProductList(filterValue)} renderItem={({item}) =>
          <TouchableOpacity style={styles.listItem} onPress={()=>goToProductScreen(item)}>
-          <ProductItem id={item.id} name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport} composition={item.composition}
-          similaires={item.similaires}/>
+            <ProductItem id={item.id} name={item.name} prix={item.prix} img={item.img} nutriscore={item.nutriscore} apport={item.apport} composition={item.composition}
+            similaires={item.similaires} regime={item.regime} />
          </TouchableOpacity>
       }/>
     </View>
@@ -65,6 +64,7 @@ const styles = StyleSheet.create({
     borderRadius:5,
     backgroundColor:"#D3D3D3",
     margin:15,
+    alignContent: 'center'
   },
   input: {
     height: 40,

@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View,TextInput } from "react-native";
 import {RootTabScreenProps} from "../types";
 import React, { useState } from 'react';
 
@@ -49,6 +49,22 @@ export default function  MapScreen ({ navigation }: RootTabScreenProps<'Map'>) {
 
 
           </MapView>
+          <TextInput 
+                style={{
+                  borderRadius: 10,
+                  margin: 10,
+                  color: '#000',
+                  borderColor: '#666',
+                  backgroundColor: '#FFF',
+                  borderWidth: 1,
+                  height: 45,
+                  width:90,
+                  paddingHorizontal: 10,
+                  fontSize: 18,
+                }}
+                placeholder={'Search'}
+                placeholderTextColor={'#666'}
+          />
         </View>
       );
 }

@@ -138,6 +138,6 @@ export const salesProducts : salesproduct[] =[{
     ],
     composition:["Eau gazeuse, sucre, mélange herbes"],
     similaires:[],
-    regime: 'none'
+    regime: ''
 }
 ];

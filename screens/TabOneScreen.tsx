@@ -61,17 +61,20 @@ export default function TabOneScreen({ navigation }: RootTabScreenProps<'TabOne'
                     zIndex={1}
                 />
                 <TouchableOpacity  onPress={()=>exitModale()} style={{
+                    margin:270,
+                    height:100,
+                    width:150,
+                    borderRadius:10,
+                    backgroundColor:"#9ACD32",
                     flex:1,
-                    justifyContent:"center",
-                    alignItems:"center",
                 }}>
                     <Text style={{
-                        fontSize: 18,
+                        fontSize: 20,
                         fontWeight: 'bold',
                         justifyContent:"center",
                         alignItems:"center",
                         margin:13,
-                        backgroundColor:"#cbcbcb"
+                        backgroundColor:"#9ACD32"
                     }}>Page d'accueil</Text>
                 </TouchableOpacity>
             </View>

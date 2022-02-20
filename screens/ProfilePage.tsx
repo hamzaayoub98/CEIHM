@@ -84,7 +84,8 @@ const styles = StyleSheet.create({
         lineHeight: 21,
         fontWeight: 'bold',
         letterSpacing: 0.25,
-        color: 'white',
+        color: 'black',
+        backgroundColor:"#9ACD32"
     },
     inputText: {
         color:"black",
@@ -102,7 +103,7 @@ const styles = StyleSheet.create({
         width: 180,
         alignItems: 'center',
         borderRadius: 20,
-        backgroundColor: 'black',
+        backgroundColor: "#9ACD32",
     },
     title:{
         fontWeight: "bold",

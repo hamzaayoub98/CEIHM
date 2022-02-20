@@ -8,9 +8,22 @@ import { Marker } from "react-native-maps";
 export default function  MapScreen ({ navigation }: RootTabScreenProps<'Map'>) {
   console.disableYellowBox = true;
 
-    const tokyoRegion = {
-        latitude: 43.7101728,
+    const niceRegion = {
+        latitude: 43.7117728,
         longitude: 7.2619532,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      };
+      const nearby = {
+        latitude: 43.7111728,
+        longitude: 7.2719532,
+        latitudeDelta: 0.01,
+        longitudeDelta: 0.01,
+      };
+
+      const bonsplans = {
+        latitude: 43.7101728,
+        longitude: 7.2609532,
         latitudeDelta: 0.01,
         longitudeDelta: 0.01,
       };
@@ -19,14 +32,20 @@ export default function  MapScreen ({ navigation }: RootTabScreenProps<'Map'>) {
         <View style={styles.container}>
           <MapView
             style={styles.map}
-            initialRegion={tokyoRegion} //your region data goes here.
+            initialRegion={niceRegion} //your region data goes here.
           >
             {/*Make sure the Marker component is a child of MapView. Otherwise it won't render*/}
             <Marker
             onPress={()=>{navigation.navigate('BonsPlans')}}
-            coordinate={tokyoRegion}
+            coordinate={bonsplans}
             icon={require('../assets/images/carrefour.png')}
             title={"Carrefour"} />
+
+          <Marker
+            onPress={()=>{navigation.navigate('BonsPlans')}}
+            coordinate={nearby}
+            icon={require('../assets/images/lidl.png')}
+            title={"Lidl"} />          
 
 
           </MapView>

@@ -47,7 +47,7 @@ export default function ScanScreen({navigation}){
                     onPress={() => {
                         goToProduct()
                     }}>
-                    <Text style={styles.text}> Flip </Text>
+                    <Text style={styles.text}> Scanner produit </Text>
                 </TouchableOpacity>
             </View>
         </View>
